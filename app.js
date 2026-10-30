@@ -1,5 +1,6 @@
 const express = require("express");
-const app = express();
+// Sin CSRF: unica ruta es GET /total, sin sesiones/cookies ni cambios de estado.
+const app = express(); // nosemgrep: javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
 const total = (precio, cant, desc) => precio * cant * (1 - desc);
 app.get("/total", (req, res) => {
   const { p, c } = req.query;
